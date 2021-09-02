@@ -1,8 +1,9 @@
 ## for multistage build
-FROM bitnami/minideb as builder
+ARG IMAGE=bitnami/minideb:buster
+FROM $IMAGE as builder
 RUN apt-get update
 
-FROM bitnami/minideb
+FROM $IMAGE
 LABEL maintainer='Pratik <pratik@improwised.com>'
 ARG MBT_VERSION=v0.24
 ARG IMG_VERSION=v0.5.11
